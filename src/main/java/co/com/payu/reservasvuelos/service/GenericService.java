@@ -2,8 +2,6 @@ package co.com.payu.reservasvuelos.service;
 
 import java.util.List;
 
-import co.com.payu.reservasvuelos.model.Pasajero;
-
 
 /**
  * Interfaz del servicio de pasajeros
@@ -12,7 +10,7 @@ import co.com.payu.reservasvuelos.model.Pasajero;
  * @version Aug 20, 2016 10:53:39 PM
  *
  */
-public interface PasajeroService {
+public interface GenericService<T> {
 	/**
 	 * Método que almacena un pasajero
 	 * 
@@ -22,7 +20,7 @@ public interface PasajeroService {
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
 	 * @version Aug 20, 2016 10:24:20 PM
 	 */
-	public int insertRow(Pasajero pasajero);
+	public int insertRow(T pasajero);
 
 	/**
 	 * Método que consulta los pasajeros en el sistema
@@ -31,7 +29,7 @@ public interface PasajeroService {
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
 	 * @version Aug 20, 2016 10:24:41 PM
 	 */
-	public List<Pasajero> getList();
+	public List<T> getList();
 
 	/**
 	 * Método que obtiene un pasajero dado su id
@@ -42,7 +40,7 @@ public interface PasajeroService {
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
 	 * @version Aug 20, 2016 10:25:04 PM
 	 */
-	public Pasajero getRowById(int id);
+	public T getRowById(int id);
 
 	/**
 	 * Método que actualiza un pasajero
@@ -53,7 +51,7 @@ public interface PasajeroService {
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
 	 * @version Aug 20, 2016 10:25:26 PM
 	 */
-	public int updateRow(Pasajero pasajero);
+	public int updateRow(T pasajero);
 
 	/**
 	 * Método que elimina un pasajero

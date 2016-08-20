@@ -9,114 +9,114 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import co.com.payu.reservasvuelos.model.Pasajero;
+import co.com.payu.reservasvuelos.model.Avion;
 import co.com.payu.reservasvuelos.service.GenericService;
 
 
 /**
- * Controlador de las páginas de pasajeros
+ * Controlador de las páginas de aviones
  * 
  * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
  * @version Aug 20, 2016 10:09:40 PM
  *
  */
 @Controller
-public class PasajeroController {
+public class AvionController {
 
 	/**
-	 * Inyección del servicio de pasajeros
+	 * Inyección del servicio de aviones
 	 */
 	@Autowired
-	GenericService<Pasajero> pasajeroService;
+	GenericService<Avion> avionService;
 
 	/**
 	 * Método que realiza la redirección al formulario de creación
 	 * 
-	 * @param pasajero
-	 *            el pasajero que se va a manejar
+	 * @param avion
+	 *            el avion que se va a manejar
 	 * @return El modelo con la redirección
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
 	 * @version Aug 20, 2016 10:10:04 PM
 	 */
-	@RequestMapping("pasajero/form")
-	public ModelAndView getForm(@ModelAttribute Pasajero pasajero) {
-		return new ModelAndView("pasajero/form");
+	@RequestMapping("avion/form")
+	public ModelAndView getForm(@ModelAttribute Avion avion) {
+		return new ModelAndView("avion/form");
 	}
 
 	/**
-	 * Método que almacena el pasajero y redirecciona a la pagina de lista
+	 * Método que almacena el avion y redirecciona a la pagina de lista
 	 * 
-	 * @param pasajero
-	 *            el pasajero a almacenar
+	 * @param avion
+	 *            el avion a almacenar
 	 * @return El modelo con la redirección
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
 	 * @version Aug 20, 2016 10:10:42 PM
 	 */
-	@RequestMapping("pasajero/register")
-	public ModelAndView registerUser(@ModelAttribute Pasajero pasajero) {
-		pasajeroService.insertRow(pasajero);
+	@RequestMapping("avion/register")
+	public ModelAndView registerUser(@ModelAttribute Avion avion) {
+		avionService.insertRow(avion);
 		return new ModelAndView("redirect:list");
 	}
 
 	/**
-	 * Método que consulta los pasajeros en el sistema
+	 * Método que consulta los aviones en el sistema
 	 * 
 	 * @return el modelo con la lista
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
 	 * @version Aug 20, 2016 10:11:21 PM
 	 */
 	@SuppressWarnings("rawtypes")
-	@RequestMapping("pasajero/list")
+	@RequestMapping("avion/list")
 	public ModelAndView getList() {
-		List pasajerosList = pasajeroService.getList();
-		return new ModelAndView("pasajero/list", "pasajerosList", pasajerosList);
+		List avionesList = avionService.getList();
+		return new ModelAndView("avion/list", "avionesList", avionesList);
 	}
 
 	/**
-	 * Método que elimina un pasajero y redirecciona a la lista de pasajeros
+	 * Método que elimina un avion y redirecciona a la lista de aviones
 	 * 
 	 * @param id
-	 *            el id del pasajero a eliminar
+	 *            el id del avion a eliminar
 	 * @return el modelo con la redirección
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
 	 * @version Aug 20, 2016 10:11:43 PM
 	 */
-	@RequestMapping("pasajero/delete")
+	@RequestMapping("avion/delete")
 	public ModelAndView deleteUser(@RequestParam int id) {
-		pasajeroService.deleteRow(id);
+		avionService.deleteRow(id);
 		return new ModelAndView("redirect:list");
 	}
 
 	/**
 	 * Método redirecciona a la página de edición y carga la información del
-	 * pasajero
+	 * avion
 	 * 
 	 * @param id
-	 *            el id del pasajero a editar
-	 * @param pasajero
-	 *            el pasajero a editar
+	 *            el id del avion a editar
+	 * @param avion
+	 *            el avion a editar
 	 * @return el modelo con la redirección y el objeto resultado
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
 	 * @version Aug 20, 2016 10:12:11 PM
 	 */
-	@RequestMapping("pasajero/edit")
+	@RequestMapping("avion/edit")
 	public ModelAndView editUser(@RequestParam int id,
-			@ModelAttribute Pasajero pasajero) {
-		Pasajero pasajeroObject = pasajeroService.getRowById(id);
-		return new ModelAndView("pasajero/edit", "pasajeroObject", pasajeroObject);
+			@ModelAttribute Avion avion) {
+		Avion avionObject = avionService.getRowById(id);
+		return new ModelAndView("avion/edit", "avionObject", avionObject);
 	}
 
 	/**
-	 * Método que edita un pasajero y redirecciona a la lista de pasajeros
+	 * Método que edita un avion y redirecciona a la lista de aviones
 	 * 
-	 * @param pasajero el pasajero a actualizar
+	 * @param avion el avion a actualizar
 	 * @return el modelo con la redirección
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
 	 * @version Aug 20, 2016 10:13:14 PM
 	 */
-	@RequestMapping("pasajero/update")
-	public ModelAndView updateUser(@ModelAttribute Pasajero pasajero) {
-		pasajeroService.updateRow(pasajero);
+	@RequestMapping("avion/update")
+	public ModelAndView updateUser(@ModelAttribute Avion avion) {
+		avionService.updateRow(avion);
 		return new ModelAndView("redirect:list");
 	}
 

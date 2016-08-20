@@ -60,5 +60,8 @@
 
 	<bean id="pasajeroDaoImpl" class="co.com.payu.reservasvuelos.dao.impl.PasajeroDaoImpl" />
 	<bean id="pasajeroServiceImpl" class="co.com.payu.reservasvuelos.service.impl.PasajeroServiceImpl" />
+	
+	<bean id="avionDaoImpl" class="co.com.payu.reservasvuelos.dao.impl.AvionDaoImpl" />
+	<bean id="avionServiceImpl" class="co.com.payu.reservasvuelos.service.impl.AvionServiceImpl" />
 
 </beans>

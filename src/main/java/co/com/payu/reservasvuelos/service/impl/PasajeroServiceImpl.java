@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import co.com.payu.reservasvuelos.dao.PasajeroDao;
+import co.com.payu.reservasvuelos.dao.impl.GenericDaoImpl;
 import co.com.payu.reservasvuelos.model.Pasajero;
-import co.com.payu.reservasvuelos.service.PasajeroService;
+import co.com.payu.reservasvuelos.service.GenericService;
 
 
 /**
@@ -16,13 +16,13 @@ import co.com.payu.reservasvuelos.service.PasajeroService;
  * @version Aug 20, 2016 10:57:37 PM
  *
  */
-public class PasajeroServiceImpl implements PasajeroService {
+public class PasajeroServiceImpl implements GenericService<Pasajero> {
 
 	/**
 	 * Inyección del DAO de pasajeros 
 	 */
 	@Autowired
-	PasajeroDao pasajeroDao;
+	GenericDaoImpl<Pasajero> pasajeroDao;
 
 	/*
 	 * (non-Javadoc)
