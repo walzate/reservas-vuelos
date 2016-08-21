@@ -74,4 +74,6 @@
 	<bean id="pasajeroPorVueloDaoImpl" class="co.com.payu.reservasvuelos.dao.impl.PasajeroPorVueloDaoImpl" />
 	<bean id="pasajeroPorVueloServiceImpl" class="co.com.payu.reservasvuelos.service.impl.PasajeroPorVueloServiceImpl" />
 
+	<bean id="reporteDaoImpl" class="co.com.payu.reservasvuelos.dao.impl.ReporteDaoImpl" />
+	<bean id="reporteServiceImpl" class="co.com.payu.reservasvuelos.service.impl.ReporteServiceImpl" />
 </beans>

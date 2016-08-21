@@ -7,7 +7,10 @@ package co.com.payu.reservasvuelos.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,11 +20,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -61,6 +66,8 @@ public class Vuelo implements Serializable {
     @JoinColumn(name = "id_ruta", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Ruta ruta;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vuelo")
+    private List<PasajeroPorVuelo> pasajeroPorVueloList;
     @Transient
     private String nombreAMostrar;
 
@@ -163,6 +170,29 @@ public class Vuelo implements Serializable {
 	 */
 	public void setNombreAMostrar(String nombreAMostrar) {
 		this.nombreAMostrar = nombreAMostrar;
+	}
+
+	
+	
+	/**
+	 * Método que retorna el valor de la variable pasajeroPorVueloList
+	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
+	 * @version Aug 21, 2016 3:15:59 PM
+	 * @return the pasajeroPorVueloList
+	 */
+	@XmlTransient
+	public List<PasajeroPorVuelo> getPasajeroPorVueloList() {
+		return pasajeroPorVueloList;
+	}
+
+	/**
+	 * Método que establece el valor de la variable pasajeroPorVueloList
+	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
+	 * @version Aug 21, 2016 3:15:59 PM
+	 * @param pasajeroPorVueloList the pasajeroPorVueloList to set
+	 */
+	public void setPasajeroPorVueloList(List<PasajeroPorVuelo> pasajeroPorVueloList) {
+		this.pasajeroPorVueloList = pasajeroPorVueloList;
 	}
 
 	@Override

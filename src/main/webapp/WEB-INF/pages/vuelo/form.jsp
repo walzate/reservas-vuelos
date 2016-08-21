@@ -3,6 +3,12 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
+<script>
+  $( function() {
+    $( "#fecha" ).datepicker();
+  } );
+</script>
+
 <t:genericpage>
 	<jsp:attribute name="header">
       <h1>Crear Vuelo</h1>
@@ -12,7 +18,7 @@
 			action="register">
 			<table class="tableEdit">
 				<tr>
-					<td><form:label path="fecha">Fecha (yyyy-MM-dd)</form:label></td>
+					<td><form:label path="fecha" id="fecha">Fecha (yyyy-MM-dd)</form:label></td>
 					<td><form:input path="fecha" /></td>
 				</tr>
 				<tr>
