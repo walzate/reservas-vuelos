@@ -28,6 +28,16 @@ import co.com.payu.reservasvuelos.service.GenericService;
 @Controller
 public class RutaController {
 
+	/**
+	 * Método que realiza el binding para el campo de duración de String a Date
+	 * conservando el formato de hora y fecha
+	 * 
+	 * @param binder
+	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
+	 * @version Aug 20, 2016 7:27:05 PM
+	 * @see http://stackoverflow.com/questions/25219683/date-binder-of-multiple-
+	 *      formats-in-java
+	 */
 	@InitBinder
 	public void binder(WebDataBinder binder) {
 	    binder.registerCustomEditor(Date.class, 
