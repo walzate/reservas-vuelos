@@ -29,6 +29,7 @@
                 <value>co.com.payu.reservasvuelos.model.Pasajero</value>
                 <value>co.com.payu.reservasvuelos.model.Ruta</value>
                 <value>co.com.payu.reservasvuelos.model.Vuelo</value>
+                <value>co.com.payu.reservasvuelos.model.PasajeroPorVuelo</value>
             </list>  
         </property> 
 		<property name="hibernateProperties">
@@ -69,5 +70,8 @@
 	
 	<bean id="vueloDaoImpl" class="co.com.payu.reservasvuelos.dao.impl.VueloDaoImpl" />
 	<bean id="vueloServiceImpl" class="co.com.payu.reservasvuelos.service.impl.VueloServiceImpl" />
+	
+	<bean id="pasajeroPorVueloDaoImpl" class="co.com.payu.reservasvuelos.dao.impl.PasajeroPorVueloDaoImpl" />
+	<bean id="pasajeroPorVueloServiceImpl" class="co.com.payu.reservasvuelos.service.impl.PasajeroPorVueloServiceImpl" />
 
 </beans>

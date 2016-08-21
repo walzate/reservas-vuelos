@@ -18,7 +18,7 @@
 		<li><a title="Crear Rutas" href="/reservas-vuelos/ruta/form">Crear Rutas</a></li>
 		<li><a title="Crear Aviones" href="/reservas-vuelos/avion/form">Crear Aviones</a></li>
 		<li><a title="Crear Vuelo" href="/reservas-vuelos/vuelo/form">Crear Vuelo</a></li>
-		<li><a title="Reservas de Vuelos" href="/reservas-vuelos/reserva/form">Reservas de Vuelos</a></li>
+		<li><a title="Reservas de Vuelos" href="/reservas-vuelos/pasajeroPorVuelo/form">Reservas de Vuelos</a></li>
 		<li><a title="Reporte" href="/reservas-vuelos/reporte/form">Reporte</a></li>
 	</ul>
 	<div id="body">

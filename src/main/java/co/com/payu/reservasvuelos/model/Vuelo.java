@@ -20,6 +20,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -60,6 +61,8 @@ public class Vuelo implements Serializable {
     @JoinColumn(name = "id_ruta", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Ruta ruta;
+    @Transient
+    private String nombreAMostrar;
 
     public Vuelo() {
     }
@@ -136,6 +139,30 @@ public class Vuelo implements Serializable {
 	 */
 	public void setRuta(Ruta ruta) {
 		this.ruta = ruta;
+	}
+
+	
+	
+	/**
+	 * Método que retorna el valor de la variable nombreAMostrar
+	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
+	 * @version Aug 21, 2016 11:37:09 AM
+	 * @return the nombreAMostrar
+	 */
+	public String getNombreAMostrar() {
+		String resultado = fecha + " " + horaInicio + " "+ ruta.getAeropuertoOrigen() + "-"+ ruta.getAeropuertoDestino();
+		nombreAMostrar = resultado;
+		return nombreAMostrar;
+	}
+
+	/**
+	 * Método que establece el valor de la variable nombreAMostrar
+	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
+	 * @version Aug 21, 2016 11:37:09 AM
+	 * @param nombreAMostrar the nombreAMostrar to set
+	 */
+	public void setNombreAMostrar(String nombreAMostrar) {
+		this.nombreAMostrar = nombreAMostrar;
 	}
 
 	@Override
