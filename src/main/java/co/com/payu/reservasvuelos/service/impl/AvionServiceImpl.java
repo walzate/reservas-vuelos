@@ -19,7 +19,7 @@ import co.com.payu.reservasvuelos.service.GenericService;
 public class AvionServiceImpl implements GenericService<Avion> {
 
 	/**
-	 * Inyección del DAO de avions 
+	 * Inyección del DAO de aviones 
 	 */
 	@Autowired
 	GenericDaoImpl<Avion> avionDao;

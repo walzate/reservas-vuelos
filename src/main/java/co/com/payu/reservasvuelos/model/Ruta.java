@@ -24,6 +24,8 @@ import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  *
  * @author fawkes
@@ -53,6 +55,7 @@ public class Ruta implements Serializable {
     private String aeropuertoDestino;
     @Basic(optional = false)
     @Column(name = "duracion")
+    @DateTimeFormat(pattern = "HH:mm:ss")
     @Temporal(TemporalType.TIME)
     private Date duracion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idRuta")
