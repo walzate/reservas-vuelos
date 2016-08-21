@@ -21,6 +21,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -58,8 +59,10 @@ public class Ruta implements Serializable {
     @DateTimeFormat(pattern = "HH:mm:ss")
     @Temporal(TemporalType.TIME)
     private Date duracion;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idRuta")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ruta")
     private List<Vuelo> vueloList;
+    @Transient
+    private String nombreAMostrar;
 
     public Ruta() {
     }
@@ -116,7 +119,31 @@ public class Ruta implements Serializable {
         this.vueloList = vueloList;
     }
 
-    @Override
+    
+    
+    /**
+	 * Método que retorna el valor de la variable nombreAMostrar
+	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
+	 * @version Aug 21, 2016 9:32:56 AM
+	 * @return the nombreAMostrar
+	 */
+	public String getNombreAMostrar() {
+		String resultado = aeropuertoOrigen+"-"+aeropuertoDestino+ " "+duracion;
+		nombreAMostrar = resultado;
+		return nombreAMostrar;
+	}
+
+	/**
+	 * Método que establece el valor de la variable nombreAMostrar
+	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
+	 * @version Aug 21, 2016 9:32:56 AM
+	 * @param nombreAMostrar the nombreAMostrar to set
+	 */
+	public void setNombreAMostrar(String nombreAMostrar) {
+		this.nombreAMostrar = nombreAMostrar;
+	}
+
+	@Override
     public int hashCode() {
         int hash = 0;
         hash += (id != null ? id.hashCode() : 0);

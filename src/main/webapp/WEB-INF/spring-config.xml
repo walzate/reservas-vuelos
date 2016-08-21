@@ -66,5 +66,8 @@
 	
 	<bean id="rutaDaoImpl" class="co.com.payu.reservasvuelos.dao.impl.RutaDaoImpl" />
 	<bean id="rutaServiceImpl" class="co.com.payu.reservasvuelos.service.impl.RutaServiceImpl" />
+	
+	<bean id="vueloDaoImpl" class="co.com.payu.reservasvuelos.dao.impl.VueloDaoImpl" />
+	<bean id="vueloServiceImpl" class="co.com.payu.reservasvuelos.service.impl.VueloServiceImpl" />
 
 </beans>

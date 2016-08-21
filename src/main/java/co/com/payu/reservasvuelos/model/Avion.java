@@ -18,6 +18,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -49,9 +50,11 @@ public class Avion implements Serializable {
     private int capacidad;
     @Column(name = "fabricante")
     private String fabricante;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idAvion")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "avion")
     private List<Vuelo> vueloList;
-
+    @Transient
+    private String nombreAMostrar;
+    
     public Avion() {
     }
 
@@ -105,7 +108,31 @@ public class Avion implements Serializable {
         this.vueloList = vueloList;
     }
 
-    @Override
+    
+    
+    /**
+	 * Método que retorna el valor de la variable nombreAMostrar
+	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
+	 * @version Aug 21, 2016 9:31:34 AM
+	 * @return the nombreAMostrar
+	 */
+	public String getNombreAMostrar() {
+		String resultado= fabricante+" "+modelo+ " "+capacidad+" pasajeros";
+		nombreAMostrar = resultado;
+		return nombreAMostrar;
+	}
+
+	/**
+	 * Método que establece el valor de la variable nombreAMostrar
+	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
+	 * @version Aug 21, 2016 9:31:34 AM
+	 * @param nombreAMostrar the nombreAMostrar to set
+	 */
+	public void setNombreAMostrar(String nombreAMostrar) {
+		this.nombreAMostrar = nombreAMostrar;
+	}
+
+	@Override
     public int hashCode() {
         int hash = 0;
         hash += (id != null ? id.hashCode() : 0);

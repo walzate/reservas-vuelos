@@ -49,8 +49,6 @@ public class Pasajero implements Serializable {
     private String direccion;
     @Column(name = "telefono")
     private String telefono;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPasajero")
-    private List<Vuelo> vueloList;
 
     public Pasajero() {
     }
@@ -94,15 +92,6 @@ public class Pasajero implements Serializable {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
-    }
-
-    @XmlTransient
-    public List<Vuelo> getVueloList() {
-        return vueloList;
-    }
-
-    public void setVueloList(List<Vuelo> vueloList) {
-        this.vueloList = vueloList;
     }
 
     @Override

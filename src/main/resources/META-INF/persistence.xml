@@ -6,6 +6,11 @@
     <class>co.com.payu.reservasvuelos.model.Ruta</class>
     <class>co.com.payu.reservasvuelos.model.Avion</class>
     <class>co.com.payu.reservasvuelos.model.Vuelo</class>
+    <class>co.com.payu.reservasvuelos.model.PasajeroPorVuelo</class>
+    <class>co.com.payu.reservasvuelos.model.Vuelo_1</class>
+    <class>co.com.payu.reservasvuelos.model.Ruta_1</class>
+    <class>co.com.payu.reservasvuelos.model.Pasajero_1</class>
+    <class>co.com.payu.reservasvuelos.model.Avion_1</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/reservas_vuelos"/>
