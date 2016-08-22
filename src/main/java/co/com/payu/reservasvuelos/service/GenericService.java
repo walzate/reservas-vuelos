@@ -53,7 +53,7 @@ public interface GenericService<T> {
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
 	 * @version Aug 20, 2016 10:25:26 PM
 	 */
-	public int updateRow(T pasajero);
+	public int updateRow(T pasajero) throws FunctionalException;
 
 	/**
 	 * Método que elimina un pasajero

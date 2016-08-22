@@ -90,7 +90,8 @@ public class PasajeroPorVueloServiceImpl implements GenericService<PasajeroPorVu
 	 * Object)
 	 */
 	@Override
-	public int updateRow(PasajeroPorVuelo pasajeroPorVuelo) {
+	public int updateRow(PasajeroPorVuelo pasajeroPorVuelo) throws FunctionalException{
+		validarCapacidadAvion(pasajeroPorVuelo);
 		return pasajeroPorVueloDao.updateRow(pasajeroPorVuelo);
 	}
 

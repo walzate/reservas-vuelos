@@ -17,14 +17,33 @@
 				</tr>
 				<tr>
 					<td><form:label path="pasajero">Pasajero</form:label></td>
-					<td><form:select path="pasajero.id" itemLabel="nombre"
-							itemValue="id" items="${pasajerosList}">
+					<td><form:select path="pasajero.id">
+							<c:forEach items="${pasajerosList}" var="pasajero">
+						        <c:choose>
+						            <c:when test="${pasajero.id eq pasajeroPorVueloObject.pasajero.id}">
+						                <option value="${pasajero.id}" selected>${pasajero.nombre}</option>
+						            </c:when>
+						            <c:otherwise>
+						                <option value="${pasajero.id}">${pasajero.nombre}</option>
+						            </c:otherwise>
+						        </c:choose> 
+						    </c:forEach>
 						</form:select>
+					</td>
 				</tr>
 				<tr>
 					<td><form:label path="vuelo">Vuelo</form:label></td>
-					<td><form:select path="vuelo.id" itemLabel="nombreAMostrar"
-							itemValue="id" items="${vuelosList}">
+					<td><form:select path="vuelo.id">
+							<c:forEach items="${vuelosList}" var="vuelo">
+						        <c:choose>
+						            <c:when test="${vuelo.id eq pasajeroPorVueloObject.vuelo.id}">
+						                <option value="${vuelo.id}" selected>${vuelo.nombreAMostrar}</option>
+						            </c:when>
+						            <c:otherwise>
+						                <option value="${vuelo.id}">${vuelo.nombreAMostrar}</option>
+						            </c:otherwise>
+						        </c:choose> 
+						    </c:forEach>
 						</form:select>
 				</tr>
 				<tr>

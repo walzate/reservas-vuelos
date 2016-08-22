@@ -144,8 +144,13 @@ public class RutaController {
 	 */
 	@RequestMapping("ruta/update")
 	public ModelAndView updateUser(@ModelAttribute Ruta ruta) {
-		rutaService.updateRow(ruta);
-		return new ModelAndView("redirect:list");
+		ModelAndView mav = new ModelAndView("redirect:list");
+		try {
+			rutaService.updateRow(ruta);
+		} catch (FunctionalException e) {
+			mav.addObject("error", e.getMessage());
+		}
+		return mav;
 	}
 
 }

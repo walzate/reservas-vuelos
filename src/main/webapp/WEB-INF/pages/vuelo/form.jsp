@@ -19,11 +19,11 @@
 			<table class="tableEdit">
 				<tr>
 					<td><form:label path="fecha" id="fecha">Fecha (yyyy-MM-dd)</form:label></td>
-					<td><form:input path="fecha" /></td>
+					<td><form:input path="fecha" maxlength="10"/></td>
 				</tr>
 				<tr>
 					<td><form:label path="horaInicio">Hora de inicio (HH:mm:ss)</form:label></td>
-					<td><form:input path="horaInicio" /></td>
+					<td><form:input path="horaInicio" maxlength="8"/></td>
 				</tr>
 				<tr>
 					<td><form:label path="avion">Avión</form:label></td>

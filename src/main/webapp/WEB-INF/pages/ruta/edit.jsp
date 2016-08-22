@@ -17,15 +17,15 @@
 				</tr>
 				<tr>
 					<td><form:label path="aeropuertoOrigen">Aeropuerto Origen</form:label></td>
-					<td><form:input path="aeropuertoOrigen" value="${rutaObject.aeropuertoOrigen}" /></td>
+					<td><form:input path="aeropuertoOrigen" value="${rutaObject.aeropuertoOrigen}" maxlength="45"/></td>
 				</tr>
 				<tr>
 					<td><form:label path="aeropuertoDestino">Aeropuerto Destino</form:label></td>
-					<td><form:input path="aeropuertoDestino" value="${rutaObject.aeropuertoDestino}"/></td>
+					<td><form:input path="aeropuertoDestino" value="${rutaObject.aeropuertoDestino}" maxlength="45"/></td>
 				</tr>
 				<tr>
-					<td><form:label path="duracion">Duración</form:label></td>
-					<td><form:input path="duracion" value="${rutaObject.duracion}"/></td>
+					<td><form:label path="duracion">Duración (HH:mm:ss)</form:label></td>
+					<td><form:input path="duracion" value="${rutaObject.duracion}" maxlength="8"/></td>
 				</tr>
 				<tr>
 					<td></td>

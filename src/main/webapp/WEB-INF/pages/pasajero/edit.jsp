@@ -17,15 +17,15 @@
 				</tr>
 				<tr>
 					<td><form:label path="nombre">Nombre</form:label></td>
-					<td><form:input path="nombre" value="${pasajeroObject.nombre}" /></td>
+					<td><form:input path="nombre" value="${pasajeroObject.nombre}" maxlength="45"/></td>
 				</tr>
 				<tr>
 					<td><form:label path="direccion">Dirección</form:label></td>
-					<td><form:input path="direccion" value="${pasajeroObject.direccion}"/></td>
+					<td><form:input path="direccion" value="${pasajeroObject.direccion}" maxlength="45"/></td>
 				</tr>
 				<tr>
 					<td><form:label path="telefono">Teléfono</form:label></td>
-					<td><form:input path="telefono" value="${pasajeroObject.telefono}"/></td>
+					<td><form:input path="telefono" value="${pasajeroObject.telefono}" maxlength="45"/></td>
 				</tr>
 				<tr>
 					<td></td>

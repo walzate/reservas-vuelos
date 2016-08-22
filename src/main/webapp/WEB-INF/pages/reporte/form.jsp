@@ -20,11 +20,11 @@
 				</tr>
 				<tr>
 					<td><form:label path="fechaInicial">Fecha (yyyy-MM-dd)</form:label></td>
-					<td><form:input path="fechaInicial" /></td>
+					<td><form:input path="fechaInicial" maxlength="10"/></td>
 				</tr>
 				<tr>
 					<td><form:label path="fechaFinal">Fecha (yyyy-MM-dd)</form:label></td>
-					<td><form:input path="fechaFinal" /></td>
+					<td><form:input path="fechaFinal" maxlength="10"/></td>
 				</tr>
 				<tr>
 					<td></td>

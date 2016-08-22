@@ -123,8 +123,13 @@ public class PasajeroController {
 	 */
 	@RequestMapping("pasajero/update")
 	public ModelAndView updateUser(@ModelAttribute Pasajero pasajero) {
-		pasajeroService.updateRow(pasajero);
-		return new ModelAndView("redirect:list");
+		ModelAndView mav = new ModelAndView("redirect:list");
+		try {
+			pasajeroService.updateRow(pasajero);
+		} catch (FunctionalException e) {
+			mav.addObject("error", e.getMessage());
+		}
+		return mav;
 	}
 
 }

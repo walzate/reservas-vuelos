@@ -122,8 +122,13 @@ public class AvionController {
 	 */
 	@RequestMapping("avion/update")
 	public ModelAndView updateUser(@ModelAttribute Avion avion) {
-		avionService.updateRow(avion);
-		return new ModelAndView("redirect:list");
+		ModelAndView mav = new ModelAndView("redirect:list");
+		try {
+			avionService.updateRow(avion);
+		} catch (FunctionalException e) {
+			mav.addObject("error", e.getMessage());
+		}
+		return mav;
 	}
 
 }

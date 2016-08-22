@@ -13,15 +13,15 @@
 			<table class="tableEdit">
 				<tr>
 					<td><form:label path="aeropuertoOrigen">Aeropuerto Origen</form:label></td>
-					<td><form:input path="aeropuertoOrigen" /></td>
+					<td><form:input path="aeropuertoOrigen" maxlength="45"/></td>
 				</tr>
 				<tr>
 					<td><form:label path="aeropuertoDestino">Aeropuerto Destino</form:label></td>
-					<td><form:input path="aeropuertoDestino" /></td>
+					<td><form:input path="aeropuertoDestino" maxlength="45"/></td>
 				</tr>
 				<tr>
-					<td><form:label path="duracion">Duración (HH:mm)</form:label></td>
-					<td><form:input path="duracion" /></td>
+					<td><form:label path="duracion">Duración (HH:mm:ss)</form:label></td>
+					<td><form:input path="duracion" maxlength="8"/></td>
 				</tr>
 				<tr>
 					<td></td>

@@ -17,15 +17,15 @@
 				</tr>
 				<tr>
 					<td><form:label path="modelo">Modelo</form:label></td>
-					<td><form:input path="modelo" value="${avionObject.modelo}" /></td>
+					<td><form:input path="modelo" value="${avionObject.modelo}" maxlength="4"/></td>
 				</tr>
 				<tr>
 					<td><form:label path="capacidad">Capacidad</form:label></td>
-					<td><form:input path="capacidad" value="${avionObject.capacidad}"/></td>
+					<td><form:input path="capacidad" value="${avionObject.capacidad}" maxlength="3"/></td>
 				</tr>
 				<tr>
 					<td><form:label path="fabricante">Fabricante</form:label></td>
-					<td><form:input path="fabricante" value="${avionObject.fabricante}"/></td>
+					<td><form:input path="fabricante" value="${avionObject.fabricante}" maxlength="45"/></td>
 				</tr>
 				<tr>
 					<td></td>

@@ -16,23 +16,41 @@
 					<td><form:input path="id" value="${vueloObject.id}" readonly="true"/></td>
 				</tr>
 				<tr>
-					<td><form:label path="fecha">Fecha</form:label></td>
-					<td><form:input path="fecha" value="${vueloObject.fecha}" /></td>
+					<td><form:label path="fecha">Fecha (yyyy-MM-dd)</form:label></td>
+					<td><form:input path="fecha" value="${vueloObject.fecha}" maxlength="10"/></td>
 				</tr>
 				<tr>
-					<td><form:label path="horaInicio">Hora de inicio</form:label></td>
-					<td><form:input path="horaInicio" value="${vueloObject.horaInicio}"/></td>
+					<td><form:label path="horaInicio">Hora de inicio (HH:mm:ss)</form:label></td>
+					<td><form:input path="horaInicio" value="${vueloObject.horaInicio}" maxlength="8"/></td>
 				</tr>
 				<tr>
 					<td><form:label path="avion">Avión</form:label></td>
-					<td><form:select path="avion.id" itemLabel="nombreAMostrar"
-							itemValue="id" items="${avionesList}">
+					<td><form:select path="avion.id">
+							<c:forEach items="${avionesList}" var="avion">
+						        <c:choose>
+						            <c:when test="${avion.id eq vueloObject.avion.id}">
+						                <option value="${avion.id}" selected>${avion.nombreAMostrar}</option>
+						            </c:when>
+						            <c:otherwise>
+						                <option value="${avion.id}">${avion.nombreAMostrar}</option>
+						            </c:otherwise>
+						        </c:choose> 
+						    </c:forEach>
 						</form:select>
 				</tr>
 				<tr>
 					<td><form:label path="ruta">Ruta</form:label></td>
-					<td><form:select path="ruta.id" itemLabel="nombreAMostrar"
-							itemValue="id" items="${rutasList}">
+					<td><form:select path="ruta.id">
+							<c:forEach items="${rutasList}" var="ruta">
+						        <c:choose>
+						            <c:when test="${ruta.id eq vueloObject.ruta.id}">
+						                <option value="${ruta.id}" selected>${ruta.nombreAMostrar}</option>
+						            </c:when>
+						            <c:otherwise>
+						                <option value="${ruta.id}">${ruta.nombreAMostrar}</option>
+						            </c:otherwise>
+						        </c:choose> 
+						    </c:forEach>
 						</form:select>
 				</tr>
 				<tr>

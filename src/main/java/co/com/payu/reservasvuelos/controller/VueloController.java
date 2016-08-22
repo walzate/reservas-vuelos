@@ -177,8 +177,13 @@ public class VueloController {
 	 */
 	@RequestMapping("vuelo/update")
 	public ModelAndView updateUser(@ModelAttribute Vuelo vuelo) {
-		vueloService.updateRow(vuelo);
-		return new ModelAndView("redirect:list");
+		ModelAndView mav = new ModelAndView("redirect:list");
+		try {
+			vueloService.updateRow(vuelo);
+		} catch (FunctionalException e) {
+			mav.addObject("error", e.getMessage());
+		}
+		return mav;
 	}
 
 }

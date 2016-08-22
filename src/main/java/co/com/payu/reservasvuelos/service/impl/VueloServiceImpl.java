@@ -34,14 +34,17 @@ public class VueloServiceImpl implements GenericService<Vuelo> {
 	 */
 	@Override
 	public int insertRow(Vuelo vuelo) throws FunctionalException {
-		List<Vuelo> vuelos =vueloDao.vuelosAvionMismoDiaYHora(vuelo);
+		validarVuelosAvionMismoDiaYHora(vuelo);
 		
+		return vueloDao.insertRow(vuelo);
+	}
+	
+	private void validarVuelosAvionMismoDiaYHora(Vuelo vuelo) throws FunctionalException{
+		List<Vuelo> vuelos =vueloDao.vuelosAvionMismoDiaYHora(vuelo);
 		if(vuelos!= null && vuelos.size()>0){
 			throw new FunctionalException(
 					"El avión está destinado a otra ruta ese mismo día y hora.");
 		}
-		
-		return vueloDao.insertRow(vuelo);
 	}
 
 	/*
@@ -72,7 +75,8 @@ public class VueloServiceImpl implements GenericService<Vuelo> {
 	 * .simuladorbanco.model.Vuelo)
 	 */
 	@Override
-	public int updateRow(Vuelo vuelo) {
+	public int updateRow(Vuelo vuelo) throws FunctionalException {
+		validarVuelosAvionMismoDiaYHora(vuelo);
 		return vueloDao.updateRow(vuelo);
 	}
 
