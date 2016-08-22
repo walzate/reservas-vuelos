@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import co.com.payu.reservasvuelos.exception.FunctionalException;
 import co.com.payu.reservasvuelos.model.Ruta;
 import co.com.payu.reservasvuelos.service.GenericService;
 
@@ -75,8 +76,14 @@ public class RutaController {
 	 */
 	@RequestMapping("ruta/register")
 	public ModelAndView registerUser(@ModelAttribute Ruta ruta) {
-		rutaService.insertRow(ruta);
-		return new ModelAndView("redirect:list");
+		
+		ModelAndView mav = new ModelAndView("redirect:list");
+		try {
+			rutaService.insertRow(ruta);
+		} catch (FunctionalException e) {
+			mav.addObject("error", e.getMessage());
+		}
+		return mav;
 	}
 
 	/**

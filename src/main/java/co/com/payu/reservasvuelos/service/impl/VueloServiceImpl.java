@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import co.com.payu.reservasvuelos.dao.VueloDao;
 import co.com.payu.reservasvuelos.dao.impl.GenericDaoImpl;
+import co.com.payu.reservasvuelos.exception.FunctionalException;
 import co.com.payu.reservasvuelos.model.Vuelo;
 import co.com.payu.reservasvuelos.service.GenericService;
 
@@ -22,7 +24,7 @@ public class VueloServiceImpl implements GenericService<Vuelo> {
 	 * Inyección del DAO de vuelos 
 	 */
 	@Autowired
-	GenericDaoImpl<Vuelo> vueloDao;
+	VueloDao vueloDao;
 
 	/*
 	 * (non-Javadoc)
@@ -32,7 +34,14 @@ public class VueloServiceImpl implements GenericService<Vuelo> {
 	 * .simuladorbanco.model.Vuelo)
 	 */
 	@Override
-	public int insertRow(Vuelo vuelo) {
+	public int insertRow(Vuelo vuelo) throws FunctionalException {
+		List<Vuelo> vuelos =vueloDao.vuelosAvionMismoDiaYHora(vuelo);
+		
+		if(vuelos!= null && vuelos.size()>0){
+			throw new FunctionalException(
+					"El avión está destinado a otra ruta ese mismo día y hora.");
+		}
+		
 		return vueloDao.insertRow(vuelo);
 	}
 

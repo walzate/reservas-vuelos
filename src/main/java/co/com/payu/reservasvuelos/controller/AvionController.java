@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import co.com.payu.reservasvuelos.exception.FunctionalException;
 import co.com.payu.reservasvuelos.model.Avion;
 import co.com.payu.reservasvuelos.service.GenericService;
 
@@ -54,8 +55,13 @@ public class AvionController {
 	 */
 	@RequestMapping("avion/register")
 	public ModelAndView registerUser(@ModelAttribute Avion avion) {
-		avionService.insertRow(avion);
-		return new ModelAndView("redirect:list");
+		ModelAndView mav = new ModelAndView("redirect:list");
+		try {
+			avionService.insertRow(avion);
+		} catch (FunctionalException e) {
+			mav.addObject("error", e.getMessage());
+		}
+		return mav;
 	}
 
 	/**

@@ -30,6 +30,8 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import co.com.payu.reservasvuelos.util.ReservasVuelosUtil;
+
 /**
  *
  * @author fawkes
@@ -70,6 +72,10 @@ public class Vuelo implements Serializable {
     private List<PasajeroPorVuelo> pasajeroPorVueloList;
     @Transient
     private String nombreAMostrar;
+    @Transient
+    @DateTimeFormat(pattern = "HH:mm:ss")
+    @Temporal(TemporalType.TIME)
+    private Date horaEstimadaFinalizacion;
 
     public Vuelo() {
     }
@@ -193,6 +199,30 @@ public class Vuelo implements Serializable {
 	 */
 	public void setPasajeroPorVueloList(List<PasajeroPorVuelo> pasajeroPorVueloList) {
 		this.pasajeroPorVueloList = pasajeroPorVueloList;
+	}
+
+	
+	
+	/**
+	 * Método que retorna el valor de la variable horaEstimadaFinalizacion
+	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
+	 * @version Aug 21, 2016 6:42:34 PM
+	 * @return the horaEstimadaFinalizacion
+	 */
+	public Date getHoraEstimadaFinalizacion() {
+		Date resultado = ReservasVuelosUtil.getInstance().sumarHoraDeInicioYDuracion(horaInicio, ruta.getDuracion());
+		horaEstimadaFinalizacion = resultado;
+		return horaEstimadaFinalizacion;
+	}
+
+	/**
+	 * Método que establece el valor de la variable horaEstimadaFinalizacion
+	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
+	 * @version Aug 21, 2016 6:42:34 PM
+	 * @param horaEstimadaFinalizacion the horaEstimadaFinalizacion to set
+	 */
+	public void setHoraEstimadaFinalizacion(Date horaEstimadaFinalizacion) {
+		this.horaEstimadaFinalizacion = horaEstimadaFinalizacion;
 	}
 
 	@Override

@@ -23,6 +23,12 @@
 		<li><a title="Reservas de Vuelos" href="/reservas-vuelos/pasajeroPorVuelo/form">Reservas de Vuelos</a></li>
 		<li><a title="Reporte" href="/reservas-vuelos/reporte/form">Reporte</a></li>
 	</ul>
+	<%
+			if (request.getParameter("error") != null) {
+				out.println("<p>Error: " + request.getParameter("error")
+						+ "</p>");
+			}
+	%>
 	<div id="body">
 		<jsp:doBody />
 	</div>

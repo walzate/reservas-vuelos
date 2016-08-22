@@ -2,6 +2,8 @@ package co.com.payu.reservasvuelos.service;
 
 import java.util.List;
 
+import co.com.payu.reservasvuelos.exception.FunctionalException;
+
 
 /**
  * Interfaz del servicio de pasajeros
@@ -20,7 +22,7 @@ public interface GenericService<T> {
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
 	 * @version Aug 20, 2016 10:24:20 PM
 	 */
-	public int insertRow(T pasajero);
+	public int insertRow(T pasajero) throws FunctionalException;
 
 	/**
 	 * Método que consulta los pasajeros en el sistema
