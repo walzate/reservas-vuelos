@@ -12,17 +12,17 @@
 			action="register">
 			<table class="tableEdit">
 				<tr>
-					<td><form:label path="pasajero">Pasajero</form:label></td>
-					<td><form:select path="pasajero.id">
-							<form:option value="NONE"> --SELECT--</form:option>
+					<td><form:label path="pasajero">Pasajero *</form:label></td>
+					<td><form:select path="pasajero.id"  required="required">
+							<form:option value=""> --SELECT--</form:option>
 							<form:options itemLabel="nombre" itemValue="id"
 								items="${pasajerosList}"></form:options>
 						</form:select></td>
 				</tr>
 				<tr>
-					<td><form:label path="vuelo">Vuelo</form:label></td>
-					<td><form:select path="vuelo.id">
-							<form:option value="NONE"> --SELECT--</form:option>
+					<td><form:label path="vuelo">Vuelo *</form:label></td>
+					<td><form:select path="vuelo.id"  required="required">
+							<form:option value=""> --SELECT--</form:option>
 							<form:options itemLabel="nombreAMostrar" itemValue="id"
 								items="${vuelosList}"></form:options>
 						</form:select></td>

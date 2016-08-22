@@ -18,25 +18,25 @@
 			action="register">
 			<table class="tableEdit">
 				<tr>
-					<td><form:label path="fecha" id="fecha">Fecha (yyyy-MM-dd)</form:label></td>
-					<td><form:input path="fecha" maxlength="10"/></td>
+					<td><form:label path="fecha" id="fecha">Fecha (yyyy-MM-dd) *</form:label></td>
+					<td><form:input path="fecha" maxlength="10"  required="required"/></td>
 				</tr>
 				<tr>
-					<td><form:label path="horaInicio">Hora de inicio (HH:mm:ss)</form:label></td>
-					<td><form:input path="horaInicio" maxlength="8"/></td>
+					<td><form:label path="horaInicio">Hora de inicio (HH:mm:ss) *</form:label></td>
+					<td><form:input path="horaInicio" maxlength="8"  required="required"/></td>
 				</tr>
 				<tr>
-					<td><form:label path="avion">Avión</form:label></td>
-					<td><form:select path="avion.id">
-							<form:option value="NONE"> --SELECT--</form:option>
+					<td><form:label path="avion">Avión *</form:label></td>
+					<td><form:select path="avion.id"  required="required">
+							<form:option value=""> --SELECT--</form:option>
 							<form:options itemLabel="nombreAMostrar" itemValue="id"
 								items="${avionesList}"></form:options>
 						</form:select></td>
 				</tr>
 				<tr>
-					<td><form:label path="ruta">Ruta</form:label></td>
-					<td><form:select path="ruta.id">
-							<form:option value="NONE"> --SELECT--</form:option>
+					<td><form:label path="ruta">Ruta *</form:label></td>
+					<td><form:select path="ruta.id"  required="required">
+							<form:option value=""> --SELECT--</form:option>
 							<form:options itemLabel="nombreAMostrar" itemValue="id"
 								items="${rutasList}"></form:options>
 						</form:select></td>

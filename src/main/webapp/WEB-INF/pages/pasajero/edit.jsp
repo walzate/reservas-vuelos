@@ -16,8 +16,8 @@
 					<td><form:input path="id" value="${pasajeroObject.id}" readonly="true"/></td>
 				</tr>
 				<tr>
-					<td><form:label path="nombre">Nombre</form:label></td>
-					<td><form:input path="nombre" value="${pasajeroObject.nombre}" maxlength="45"/></td>
+					<td><form:label path="nombre">Nombre *</form:label></td>
+					<td><form:input path="nombre" value="${pasajeroObject.nombre}" maxlength="45" required="required"/></td>
 				</tr>
 				<tr>
 					<td><form:label path="direccion">Dirección</form:label></td>

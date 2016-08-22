@@ -12,16 +12,16 @@
 			action="register">
 			<table class="tableEdit">
 				<tr>
-					<td><form:label path="aeropuertoOrigen">Aeropuerto Origen</form:label></td>
-					<td><form:input path="aeropuertoOrigen" maxlength="45"/></td>
+					<td><form:label path="aeropuertoOrigen">Aeropuerto Origen *</form:label></td>
+					<td><form:input path="aeropuertoOrigen" maxlength="45"  required="required"/></td>
 				</tr>
 				<tr>
-					<td><form:label path="aeropuertoDestino">Aeropuerto Destino</form:label></td>
-					<td><form:input path="aeropuertoDestino" maxlength="45"/></td>
+					<td><form:label path="aeropuertoDestino">Aeropuerto Destino *</form:label></td>
+					<td><form:input path="aeropuertoDestino" maxlength="45"  required="required"/></td>
 				</tr>
 				<tr>
-					<td><form:label path="duracion">Duración (HH:mm:ss)</form:label></td>
-					<td><form:input path="duracion" maxlength="8"/></td>
+					<td><form:label path="duracion">Duración (HH:mm:ss) *</form:label></td>
+					<td><form:input path="duracion" maxlength="8"  required="required"/></td>
 				</tr>
 				<tr>
 					<td></td>

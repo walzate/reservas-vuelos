@@ -12,19 +12,19 @@
 			action="filter">
 			<table>
 				<tr>
-					<td><form:label path="avion">Avion</form:label></td>
-					<td><form:select path="avion.id">
-							<form:option value="NONE"> --SELECT--</form:option>
+					<td><form:label path="avion">Avion *</form:label></td>
+					<td><form:select path="avion.id"  required="required">
+							<form:option value=""> --SELECT--</form:option>
 							<form:options itemLabel="nombreAMostrar" itemValue="id" items="${avionesList}"></form:options>
 						</form:select></td>
 				</tr>
 				<tr>
-					<td><form:label path="fechaInicial">Fecha (yyyy-MM-dd)</form:label></td>
-					<td><form:input path="fechaInicial" maxlength="10"/></td>
+					<td><form:label path="fechaInicial">Fecha (yyyy-MM-dd) *</form:label></td>
+					<td><form:input path="fechaInicial" maxlength="10"  required="required"/></td>
 				</tr>
 				<tr>
-					<td><form:label path="fechaFinal">Fecha (yyyy-MM-dd)</form:label></td>
-					<td><form:input path="fechaFinal" maxlength="10"/></td>
+					<td><form:label path="fechaFinal">Fecha (yyyy-MM-dd) *</form:label></td>
+					<td><form:input path="fechaFinal" maxlength="10"  required="required"/></td>
 				</tr>
 				<tr>
 					<td></td>

@@ -16,8 +16,8 @@
 					<td><form:input path="id" value="${pasajeroPorVueloObject.id}" readonly="true"/></td>
 				</tr>
 				<tr>
-					<td><form:label path="pasajero">Pasajero</form:label></td>
-					<td><form:select path="pasajero.id">
+					<td><form:label path="pasajero">Pasajero *</form:label></td>
+					<td><form:select path="pasajero.id" required="required">
 							<c:forEach items="${pasajerosList}" var="pasajero">
 						        <c:choose>
 						            <c:when test="${pasajero.id eq pasajeroPorVueloObject.pasajero.id}">
@@ -32,8 +32,8 @@
 					</td>
 				</tr>
 				<tr>
-					<td><form:label path="vuelo">Vuelo</form:label></td>
-					<td><form:select path="vuelo.id">
+					<td><form:label path="vuelo">Vuelo *</form:label></td>
+					<td><form:select path="vuelo.id" required="required">
 							<c:forEach items="${vuelosList}" var="vuelo">
 						        <c:choose>
 						            <c:when test="${vuelo.id eq pasajeroPorVueloObject.vuelo.id}">
