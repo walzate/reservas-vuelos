@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import co.com.payu.reservasvuelos.dao.VueloDao;
-import co.com.payu.reservasvuelos.dao.impl.GenericDaoImpl;
 import co.com.payu.reservasvuelos.exception.FunctionalException;
 import co.com.payu.reservasvuelos.model.Vuelo;
 import co.com.payu.reservasvuelos.service.GenericService;

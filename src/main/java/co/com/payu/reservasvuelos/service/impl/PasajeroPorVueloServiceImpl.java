@@ -2,10 +2,14 @@ package co.com.payu.reservasvuelos.service.impl;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import co.com.payu.reservasvuelos.dao.VueloDao;
 import co.com.payu.reservasvuelos.dao.impl.GenericDaoImpl;
+import co.com.payu.reservasvuelos.exception.FunctionalException;
 import co.com.payu.reservasvuelos.model.PasajeroPorVuelo;
+import co.com.payu.reservasvuelos.model.Vuelo;
 import co.com.payu.reservasvuelos.service.GenericService;
 
 /**
@@ -22,6 +26,13 @@ public class PasajeroPorVueloServiceImpl implements GenericService<PasajeroPorVu
 	 */
 	@Autowired
 	GenericDaoImpl<PasajeroPorVuelo> pasajeroPorVueloDao;
+	/**
+	 * Inyección del DAO de vuelos
+	 */
+	@Autowired
+	VueloDao vueloDao;
+	
+	final static Logger LOGGER = Logger.getLogger(PasajeroPorVueloServiceImpl.class);
 
 	/*
 	 * (non-Javadoc)
@@ -31,10 +42,26 @@ public class PasajeroPorVueloServiceImpl implements GenericService<PasajeroPorVu
 	 * Object)
 	 */
 	@Override
-	public int insertRow(PasajeroPorVuelo pasajeroPorVuelo) {
+	public int insertRow(PasajeroPorVuelo pasajeroPorVuelo) throws FunctionalException{
+		validarCapacidadAvion(pasajeroPorVuelo);
 		return pasajeroPorVueloDao.insertRow(pasajeroPorVuelo);
 	}
 
+	private void validarCapacidadAvion(PasajeroPorVuelo pasajeroPorVuelo) throws FunctionalException{
+		Vuelo vueloCompleto = vueloDao.obtenerVueloCompleto(pasajeroPorVuelo.getVuelo().getId());
+		
+		int capacidad = vueloCompleto.getAvion().getCapacidad();
+		LOGGER.debug("capacidad: "+capacidad);
+		int reservas = vueloCompleto.getPasajeroPorVueloList().size();
+		LOGGER.debug("reservas: "+reservas);
+		
+		if(reservas >= capacidad){
+			LOGGER.debug("No se pueden realizar más reservas dado que el vuelo ha excedido la capacidad del avión.");
+			throw new FunctionalException(
+					"No se pueden realizar más reservas dado que el vuelo ha excedido la capacidad del avión.");
+		}
+	}
+	
 	/*
 	 * (non-Javadoc)
 	 * 

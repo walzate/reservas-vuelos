@@ -28,5 +28,18 @@ public class VueloDaoImpl extends GenericDaoImpl<Vuelo> implements VueloDao {
 		
 	}
 	
+	public Vuelo obtenerVueloCompleto (int idVuelo){
+		Session session = sessionFactory.openSession();
+		String sql = "SELECT distinct v from Vuelo v left join v.avion a left join v.ruta left join v.pasajeroPorVueloList WHERE v.id = :idVuelo";
+		
+		Query query = session.createQuery(sql);
+		query.setParameter("idVuelo", idVuelo);
+		
+		@SuppressWarnings("unchecked")
+		List<Vuelo> vuelos = query.list();
+		
+		return vuelos.get(0);
+	}
+	
 	
 }

@@ -13,6 +13,7 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -63,7 +64,7 @@ public class Vuelo implements Serializable {
     @Temporal(TemporalType.TIME)
     private Date horaInicio;
     @JoinColumn(name = "id_avion", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Avion avion;
     @JoinColumn(name = "id_ruta", referencedColumnName = "id")
     @ManyToOne(optional = false)

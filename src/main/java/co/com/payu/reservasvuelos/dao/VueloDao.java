@@ -7,5 +7,7 @@ import co.com.payu.reservasvuelos.model.Vuelo;
 
 public interface VueloDao extends GenericDao<Vuelo> {
 	public List<Vuelo> vuelosAvionMismoDiaYHora(Vuelo vuelo) throws FunctionalException;
+	
+	public Vuelo obtenerVueloCompleto (int idVuelo);
 
 }
