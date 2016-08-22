@@ -94,7 +94,7 @@ public class AvionController {
 	}
 
 	/**
-	 * Método redirecciona a la página de edición y carga la información del
+	 * Método que redirecciona a la página de edición y carga la información del
 	 * avion
 	 * 
 	 * @param id

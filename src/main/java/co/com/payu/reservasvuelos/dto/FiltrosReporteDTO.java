@@ -7,12 +7,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 import co.com.payu.reservasvuelos.constants.Constants;
 import co.com.payu.reservasvuelos.model.Avion;
 
-
 /**
  * Clase encargada de encapsular los filtros para realizar el reporte
  * 
  * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
- * @version Feb 1, 2015 10:46:11 PM
+ * @version Aug 22, 2016 10:46:11 PM
  *
  */
 public class FiltrosReporteDTO {
@@ -32,9 +31,10 @@ public class FiltrosReporteDTO {
 	 */
 	@DateTimeFormat(pattern = Constants.DATE_FORMAT)
 	private Date fechaFinal;
-	
+
 	/**
 	 * Método que retorna el valor de la variable avion
+	 * 
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
 	 * @version Aug 21, 2016 2:43:43 PM
 	 * @return the avion
@@ -45,9 +45,11 @@ public class FiltrosReporteDTO {
 
 	/**
 	 * Método que establece el valor de la variable avion
+	 * 
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
 	 * @version Aug 21, 2016 2:43:43 PM
-	 * @param avion the avion to set
+	 * @param avion
+	 *            the avion to set
 	 */
 	public void setAvion(Avion avion) {
 		this.avion = avion;
@@ -57,7 +59,7 @@ public class FiltrosReporteDTO {
 	 * Método que retorna el valor de la variable fechaInicial
 	 * 
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
-	 * @version Feb 1, 2015 6:07:40 PM
+	 * @version Aug 22, 2016 6:07:40 PM
 	 * @return the fechaInicial
 	 */
 	public Date getFechaInicial() {
@@ -68,7 +70,7 @@ public class FiltrosReporteDTO {
 	 * Método que establece el valor de la variable fechaInicial
 	 * 
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
-	 * @version Feb 1, 2015 6:07:40 PM
+	 * @version Aug 22, 2016 6:07:40 PM
 	 * @param fechaInicial
 	 *            the fechaInicial to set
 	 */
@@ -80,7 +82,7 @@ public class FiltrosReporteDTO {
 	 * Método que retorna el valor de la variable fechaFinal
 	 * 
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
-	 * @version Feb 1, 2015 6:07:40 PM
+	 * @version Aug 22, 2016 6:07:40 PM
 	 * @return the fechaFinal
 	 */
 	public Date getFechaFinal() {
@@ -91,7 +93,7 @@ public class FiltrosReporteDTO {
 	 * Método que establece el valor de la variable fechaFinal
 	 * 
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
-	 * @version Feb 1, 2015 6:07:40 PM
+	 * @version Aug 22, 2016 6:07:40 PM
 	 * @param fechaFinal
 	 *            the fechaFinal to set
 	 */

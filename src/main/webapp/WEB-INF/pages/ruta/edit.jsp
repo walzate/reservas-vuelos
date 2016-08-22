@@ -13,19 +13,25 @@
 			<table class="tableEdit">
 				<tr>
 					<td><form:label path="id">Id</form:label></td>
-					<td><form:input path="id" value="${rutaObject.id}" readonly="true"/></td>
+					<td><form:input path="id" value="${rutaObject.id}"
+							readonly="true" /></td>
 				</tr>
 				<tr>
 					<td><form:label path="aeropuertoOrigen">Aeropuerto Origen *</form:label></td>
-					<td><form:input path="aeropuertoOrigen" value="${rutaObject.aeropuertoOrigen}" maxlength="45"  required="required"/></td>
+					<td><form:input path="aeropuertoOrigen"
+							value="${rutaObject.aeropuertoOrigen}" maxlength="45"
+							required="required" /></td>
 				</tr>
 				<tr>
 					<td><form:label path="aeropuertoDestino">Aeropuerto Destino *</form:label></td>
-					<td><form:input path="aeropuertoDestino" value="${rutaObject.aeropuertoDestino}" maxlength="45"  required="required"/></td>
+					<td><form:input path="aeropuertoDestino"
+							value="${rutaObject.aeropuertoDestino}" maxlength="45"
+							required="required" /></td>
 				</tr>
 				<tr>
 					<td><form:label path="duracion">Duración (HH:mm:ss) *</form:label></td>
-					<td><form:input path="duracion" value="${rutaObject.duracion}" maxlength="8"  required="required"/></td>
+					<td><form:input path="duracion" value="${rutaObject.duracion}"
+							maxlength="8" required="required" /></td>
 				</tr>
 				<tr>
 					<td></td>

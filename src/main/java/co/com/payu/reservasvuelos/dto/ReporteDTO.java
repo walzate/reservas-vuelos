@@ -20,19 +20,20 @@ public class ReporteDTO {
 	 * Ruta por la cual se agrupa
 	 */
 	private Ruta ruta;
-	
+
 	/**
-	 * Conteo de número de vuelos realizados por el avión
+	 * Conteo del número de vuelos realizados por el avión
 	 */
 	private int numeroVuelosRealizados;
-	
+
 	/**
-	 * Conto de pasajeros transportados por el avión
+	 * Conteo de pasajeros transportados por el avión
 	 */
 	private int numeroPasajerosTransportados;
 
 	/**
 	 * Método que retorna el valor de la variable avion
+	 * 
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
 	 * @version Aug 21, 2016 2:58:55 PM
 	 * @return the avion
@@ -43,9 +44,11 @@ public class ReporteDTO {
 
 	/**
 	 * Método que establece el valor de la variable avion
+	 * 
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
 	 * @version Aug 21, 2016 2:58:55 PM
-	 * @param avion the avion to set
+	 * @param avion
+	 *            the avion to set
 	 */
 	public void setAvion(Avion avion) {
 		this.avion = avion;
@@ -53,6 +56,7 @@ public class ReporteDTO {
 
 	/**
 	 * Método que retorna el valor de la variable ruta
+	 * 
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
 	 * @version Aug 21, 2016 2:58:55 PM
 	 * @return the ruta
@@ -63,9 +67,11 @@ public class ReporteDTO {
 
 	/**
 	 * Método que establece el valor de la variable ruta
+	 * 
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
 	 * @version Aug 21, 2016 2:58:55 PM
-	 * @param ruta the ruta to set
+	 * @param ruta
+	 *            the ruta to set
 	 */
 	public void setRuta(Ruta ruta) {
 		this.ruta = ruta;
@@ -73,6 +79,7 @@ public class ReporteDTO {
 
 	/**
 	 * Método que retorna el valor de la variable numeroVuelosRealizados
+	 * 
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
 	 * @version Aug 21, 2016 2:58:55 PM
 	 * @return the numeroVuelosRealizados
@@ -83,9 +90,11 @@ public class ReporteDTO {
 
 	/**
 	 * Método que establece el valor de la variable numeroVuelosRealizados
+	 * 
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
 	 * @version Aug 21, 2016 2:58:55 PM
-	 * @param numeroVuelosRealizados the numeroVuelosRealizados to set
+	 * @param numeroVuelosRealizados
+	 *            the numeroVuelosRealizados to set
 	 */
 	public void setNumeroVuelosRealizados(int numeroVuelosRealizados) {
 		this.numeroVuelosRealizados = numeroVuelosRealizados;
@@ -93,6 +102,7 @@ public class ReporteDTO {
 
 	/**
 	 * Método que retorna el valor de la variable numeroPasajerosTransportados
+	 * 
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
 	 * @version Aug 21, 2016 2:58:55 PM
 	 * @return the numeroPasajerosTransportados
@@ -103,12 +113,14 @@ public class ReporteDTO {
 
 	/**
 	 * Método que establece el valor de la variable numeroPasajerosTransportados
+	 * 
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
 	 * @version Aug 21, 2016 2:58:55 PM
-	 * @param numeroPasajerosTransportados the numeroPasajerosTransportados to set
+	 * @param numeroPasajerosTransportados
+	 *            the numeroPasajerosTransportados to set
 	 */
 	public void setNumeroPasajerosTransportados(int numeroPasajerosTransportados) {
 		this.numeroPasajerosTransportados = numeroPasajerosTransportados;
 	}
-	
+
 }

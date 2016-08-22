@@ -2,7 +2,7 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <t:genericpage>
 	<jsp:attribute name="header">
@@ -26,7 +26,8 @@
 
 						<td><c:out value="${vuelo.fecha}" /></td>
 						<td><c:out value="${vuelo.horaInicio}" /></td>
-						<td><fmt:formatDate pattern="HH:mm:ss" value="${vuelo.horaEstimadaFinalizacion}" /></td>
+						<td><fmt:formatDate pattern="HH:mm:ss"
+								value="${vuelo.horaEstimadaFinalizacion}" /></td>
 						<td><c:out value="${vuelo.avion.nombreAMostrar}" /></td>
 						<td><c:out value="${vuelo.ruta.nombreAMostrar}" /></td>
 						<td><a href="edit?id=${vuelo.id}">Editar</a></td>

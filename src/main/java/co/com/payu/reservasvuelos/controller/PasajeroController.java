@@ -95,7 +95,7 @@ public class PasajeroController {
 	}
 
 	/**
-	 * Método redirecciona a la página de edición y carga la información del
+	 * Método que redirecciona a la página de edición y carga la información del
 	 * pasajero
 	 * 
 	 * @param id

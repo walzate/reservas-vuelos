@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import co.com.payu.reservasvuelos.constants.Constants;
 import co.com.payu.reservasvuelos.exception.FunctionalException;
 import co.com.payu.reservasvuelos.model.Ruta;
 import co.com.payu.reservasvuelos.service.GenericService;
@@ -42,7 +43,7 @@ public class RutaController {
 	@InitBinder
 	public void binder(WebDataBinder binder) {
 	    binder.registerCustomEditor(Date.class, 
-	            new CustomDateEditor(new SimpleDateFormat("HH:mm:ss"), true));
+	            new CustomDateEditor(new SimpleDateFormat(Constants.TIME_FORMAT), true));
 	}
 	
 	/**
@@ -116,7 +117,7 @@ public class RutaController {
 	}
 
 	/**
-	 * Método redirecciona a la página de edición y carga la información del
+	 * Método que redirecciona a la página de edición y carga la información del
 	 * ruta
 	 * 
 	 * @param id

@@ -8,9 +8,8 @@ import co.com.payu.reservasvuelos.dao.impl.GenericDaoImpl;
 import co.com.payu.reservasvuelos.model.Avion;
 import co.com.payu.reservasvuelos.service.GenericService;
 
-
 /**
- * Implementación del servicio de aviones 
+ * Implementación del servicio de aviones
  * 
  * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
  * @version Aug 20, 2016 10:57:37 PM
@@ -19,7 +18,7 @@ import co.com.payu.reservasvuelos.service.GenericService;
 public class AvionServiceImpl implements GenericService<Avion> {
 
 	/**
-	 * Inyección del DAO de aviones 
+	 * Inyección del DAO de aviones
 	 */
 	@Autowired
 	GenericDaoImpl<Avion> avionDao;

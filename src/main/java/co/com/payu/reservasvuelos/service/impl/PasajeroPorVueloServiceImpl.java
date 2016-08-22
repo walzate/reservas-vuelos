@@ -31,7 +31,10 @@ public class PasajeroPorVueloServiceImpl implements GenericService<PasajeroPorVu
 	 */
 	@Autowired
 	VueloDao vueloDao;
-	
+
+	/**
+	 * Gestor de la bitácora de eventos
+	 */
 	final static Logger LOGGER = Logger.getLogger(PasajeroPorVueloServiceImpl.class);
 
 	/*
@@ -42,26 +45,37 @@ public class PasajeroPorVueloServiceImpl implements GenericService<PasajeroPorVu
 	 * Object)
 	 */
 	@Override
-	public int insertRow(PasajeroPorVuelo pasajeroPorVuelo) throws FunctionalException{
+	public int insertRow(PasajeroPorVuelo pasajeroPorVuelo) throws FunctionalException {
 		validarCapacidadAvion(pasajeroPorVuelo);
 		return pasajeroPorVueloDao.insertRow(pasajeroPorVuelo);
 	}
 
-	private void validarCapacidadAvion(PasajeroPorVuelo pasajeroPorVuelo) throws FunctionalException{
+	/**
+	 * Método encargado de validar que un vuelo no puede exceder la capacidad
+	 * del avión.
+	 * 
+	 * @param pasajeroPorVuelo
+	 *            la reserva a realizar
+	 * @throws FunctionalException
+	 *             si se excede la capacidad del avión
+	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
+	 * @version Aug 22, 2016 8:22:05 AM
+	 */
+	private void validarCapacidadAvion(PasajeroPorVuelo pasajeroPorVuelo) throws FunctionalException {
 		Vuelo vueloCompleto = vueloDao.obtenerVueloCompleto(pasajeroPorVuelo.getVuelo().getId());
-		
+
 		int capacidad = vueloCompleto.getAvion().getCapacidad();
-		LOGGER.debug("capacidad: "+capacidad);
+		LOGGER.debug("capacidad: " + capacidad);
 		int reservas = vueloCompleto.getPasajeroPorVueloList().size();
-		LOGGER.debug("reservas: "+reservas);
-		
-		if(reservas >= capacidad){
+		LOGGER.debug("reservas: " + reservas);
+
+		if (reservas >= capacidad) {
 			LOGGER.debug("No se pueden realizar más reservas dado que el vuelo ha excedido la capacidad del avión.");
 			throw new FunctionalException(
 					"No se pueden realizar más reservas dado que el vuelo ha excedido la capacidad del avión.");
 		}
 	}
-	
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -90,7 +104,7 @@ public class PasajeroPorVueloServiceImpl implements GenericService<PasajeroPorVu
 	 * Object)
 	 */
 	@Override
-	public int updateRow(PasajeroPorVuelo pasajeroPorVuelo) throws FunctionalException{
+	public int updateRow(PasajeroPorVuelo pasajeroPorVuelo) throws FunctionalException {
 		validarCapacidadAvion(pasajeroPorVuelo);
 		return pasajeroPorVueloDao.updateRow(pasajeroPorVuelo);
 	}

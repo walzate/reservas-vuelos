@@ -8,19 +8,21 @@
       <h1>Modificar Reserva</h1>
     </jsp:attribute>
 	<jsp:body>
-		<form:form id="registerForm" modelAttribute="pasajeroPorVuelo" method="post"
-			action="update">
+		<form:form id="registerForm" modelAttribute="pasajeroPorVuelo"
+			method="post" action="update">
 			<table class="tableEdit">
 				<tr>
 					<td><form:label path="id">Id</form:label></td>
-					<td><form:input path="id" value="${pasajeroPorVueloObject.id}" readonly="true"/></td>
+					<td><form:input path="id" value="${pasajeroPorVueloObject.id}"
+							readonly="true" /></td>
 				</tr>
 				<tr>
 					<td><form:label path="pasajero">Pasajero *</form:label></td>
 					<td><form:select path="pasajero.id" required="required">
 							<c:forEach items="${pasajerosList}" var="pasajero">
 						        <c:choose>
-						            <c:when test="${pasajero.id eq pasajeroPorVueloObject.pasajero.id}">
+						            <c:when
+										test="${pasajero.id eq pasajeroPorVueloObject.pasajero.id}">
 						                <option value="${pasajero.id}" selected>${pasajero.nombre}</option>
 						            </c:when>
 						            <c:otherwise>
@@ -36,7 +38,8 @@
 					<td><form:select path="vuelo.id" required="required">
 							<c:forEach items="${vuelosList}" var="vuelo">
 						        <c:choose>
-						            <c:when test="${vuelo.id eq pasajeroPorVueloObject.vuelo.id}">
+						            <c:when
+										test="${vuelo.id eq pasajeroPorVueloObject.vuelo.id}">
 						                <option value="${vuelo.id}" selected>${vuelo.nombreAMostrar}</option>
 						            </c:when>
 						            <c:otherwise>
@@ -45,6 +48,7 @@
 						        </c:choose> 
 						    </c:forEach>
 						</form:select>
+				
 				</tr>
 				<tr>
 					<td></td>

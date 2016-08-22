@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -13,16 +14,34 @@ import org.springframework.core.GenericTypeResolver;
 
 import co.com.payu.reservasvuelos.dao.GenericDao;
 
+/**
+ * Clase abstracta encargada de implementar las acciones por defecto del DAO
+ * 
+ * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
+ * @version Aug 22, 2016 7:53:02 AM
+ *
+ */
 public abstract class GenericDaoImpl<T> implements GenericDao<T> {
-	
+
 	/**
 	 * Inyección de la fábrica de sesiones
 	 */
 	@Autowired
 	SessionFactory sessionFactory;
-	
+
+	/**
+	 * La clase del objeto genérico∫
+	 */
 	private final Class<T> genericType;
 
+	/**
+	 * Gestor de la bitácora de eventos
+	 */
+	final static Logger LOGGER = Logger.getLogger(GenericDaoImpl.class);
+
+	/**
+	 * Método constructor de la clase GenericDaoImpl.java
+	 */
 	@SuppressWarnings("unchecked")
 	public GenericDaoImpl() {
 		this.genericType = (Class<T>) GenericTypeResolver.resolveTypeArgument(getClass(), GenericDaoImpl.class);
@@ -31,7 +50,8 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see com.payulatam.simuladorbanco.dao.PasajeroDao#insertRow(com.payulatam.
+	 * @see
+	 * com.payulatam.simuladorbanco.dao.PasajeroDao#insertRow(com.payulatam.
 	 * simuladorbanco.model.Pasajero)
 	 */
 	@Override
@@ -55,7 +75,7 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 	public List<T> getList() {
 		Session session = sessionFactory.openSession();
 		@SuppressWarnings("unchecked")
-		List<T> resultList = session.createQuery("from "+ this.genericType.getName()).list();
+		List<T> resultList = session.createQuery("from " + this.genericType.getName()).list();
 		session.close();
 		return resultList;
 	}
@@ -73,8 +93,7 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 		try {
 			result = (T) session.load(Class.forName(this.genericType.getName()), id);
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOGGER.error(e.getMessage());
 		}
 		return result;
 	}
@@ -82,7 +101,8 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see com.payulatam.simuladorbanco.dao.PasajeroDao#updateRow(com.payulatam.
+	 * @see
+	 * com.payulatam.simuladorbanco.dao.PasajeroDao#updateRow(com.payulatam.
 	 * simuladorbanco.model.Pasajero)
 	 */
 	@Override
@@ -115,10 +135,9 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 			ids = session.getIdentifier(entity);
 			session.close();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOGGER.error(e.getMessage());
 		}
-		
+
 		return (Integer) ids;
 	}
 

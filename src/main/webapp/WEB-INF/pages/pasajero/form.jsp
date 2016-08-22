@@ -13,15 +13,16 @@
 			<table class="tableEdit">
 				<tr>
 					<td><form:label path="nombre">Nombre *</form:label></td>
-					<td><form:input path="nombre" maxlength="45" required="required"/></td>
+					<td><form:input path="nombre" maxlength="45"
+							required="required" /></td>
 				</tr>
 				<tr>
 					<td><form:label path="direccion">Dirección</form:label></td>
-					<td><form:input path="direccion" maxlength="45"/></td>
+					<td><form:input path="direccion" maxlength="45" /></td>
 				</tr>
 				<tr>
 					<td><form:label path="telefono">Teléfono</form:label></td>
-					<td><form:input path="telefono" maxlength="45"/></td>
+					<td><form:input path="telefono" maxlength="45" /></td>
 				</tr>
 				<tr>
 					<td></td>

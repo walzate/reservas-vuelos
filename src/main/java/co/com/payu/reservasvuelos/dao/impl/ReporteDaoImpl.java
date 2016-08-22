@@ -1,6 +1,3 @@
-/**
- * 
- */
 package co.com.payu.reservasvuelos.dao.impl;
 
 import java.util.ArrayList;

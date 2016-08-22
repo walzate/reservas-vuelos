@@ -13,15 +13,16 @@
 			<table class="tableEdit">
 				<tr>
 					<td><form:label path="modelo">Modelo</form:label></td>
-					<td><form:input path="modelo" maxlength="4"/></td>
+					<td><form:input path="modelo" maxlength="4" /></td>
 				</tr>
 				<tr>
 					<td><form:label path="capacidad">Capacidad *</form:label></td>
-					<td><form:input path="capacidad" maxlength="3"  required="required"/></td>
+					<td><form:input path="capacidad" maxlength="3"
+							required="required" /></td>
 				</tr>
 				<tr>
 					<td><form:label path="fabricante">Fabricante</form:label></td>
-					<td><form:input path="fabricante" maxlength="45"/></td>
+					<td><form:input path="fabricante" maxlength="45" /></td>
 				</tr>
 				<tr>
 					<td></td>

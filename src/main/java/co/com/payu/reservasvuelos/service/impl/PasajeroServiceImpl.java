@@ -8,9 +8,8 @@ import co.com.payu.reservasvuelos.dao.impl.GenericDaoImpl;
 import co.com.payu.reservasvuelos.model.Pasajero;
 import co.com.payu.reservasvuelos.service.GenericService;
 
-
 /**
- * Implementación del servicio de pasajeros 
+ * Implementación del servicio de pasajeros
  * 
  * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
  * @version Aug 20, 2016 10:57:37 PM
@@ -19,7 +18,7 @@ import co.com.payu.reservasvuelos.service.GenericService;
 public class PasajeroServiceImpl implements GenericService<Pasajero> {
 
 	/**
-	 * Inyección del DAO de pasajeros 
+	 * Inyección del DAO de pasajeros
 	 */
 	@Autowired
 	GenericDaoImpl<Pasajero> pasajeroDao;
@@ -27,9 +26,8 @@ public class PasajeroServiceImpl implements GenericService<Pasajero> {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * com.payulatam.simuladorbanco.service.PasajeroService#insertRow(com.payulatam
-	 * .simuladorbanco.model.Pasajero)
+	 * @see com.payulatam.simuladorbanco.service.PasajeroService#insertRow(com.
+	 * payulatam .simuladorbanco.model.Pasajero)
 	 */
 	@Override
 	public int insertRow(Pasajero pasajero) {
@@ -59,9 +57,8 @@ public class PasajeroServiceImpl implements GenericService<Pasajero> {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * com.payulatam.simuladorbanco.service.PasajeroService#updateRow(com.payulatam
-	 * .simuladorbanco.model.Pasajero)
+	 * @see com.payulatam.simuladorbanco.service.PasajeroService#updateRow(com.
+	 * payulatam .simuladorbanco.model.Pasajero)
 	 */
 	@Override
 	public int updateRow(Pasajero pasajero) {

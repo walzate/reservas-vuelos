@@ -13,19 +13,24 @@
 			<table class="tableEdit">
 				<tr>
 					<td><form:label path="id">Id</form:label></td>
-					<td><form:input path="id" value="${avionObject.id}" readonly="true"/></td>
+					<td><form:input path="id" value="${avionObject.id}"
+							readonly="true" /></td>
 				</tr>
 				<tr>
 					<td><form:label path="modelo">Modelo</form:label></td>
-					<td><form:input path="modelo" value="${avionObject.modelo}" maxlength="4"/></td>
+					<td><form:input path="modelo" value="${avionObject.modelo}"
+							maxlength="4" /></td>
 				</tr>
 				<tr>
 					<td><form:label path="capacidad">Capacidad *</form:label></td>
-					<td><form:input path="capacidad" value="${avionObject.capacidad}" maxlength="3"  required="required"/></td>
+					<td><form:input path="capacidad"
+							value="${avionObject.capacidad}" maxlength="3"
+							required="required" /></td>
 				</tr>
 				<tr>
 					<td><form:label path="fabricante">Fabricante</form:label></td>
-					<td><form:input path="fabricante" value="${avionObject.fabricante}" maxlength="45"/></td>
+					<td><form:input path="fabricante"
+							value="${avionObject.fabricante}" maxlength="45" /></td>
 				</tr>
 				<tr>
 					<td></td>

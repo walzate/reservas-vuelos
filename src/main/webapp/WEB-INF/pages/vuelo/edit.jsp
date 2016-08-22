@@ -13,19 +13,23 @@
 			<table class="tableEdit">
 				<tr>
 					<td><form:label path="id">Id</form:label></td>
-					<td><form:input path="id" value="${vueloObject.id}" readonly="true"/></td>
+					<td><form:input path="id" value="${vueloObject.id}"
+							readonly="true" /></td>
 				</tr>
 				<tr>
 					<td><form:label path="fecha">Fecha (yyyy-MM-dd) *</form:label></td>
-					<td><form:input path="fecha" value="${vueloObject.fecha}" maxlength="10"  required="required"/></td>
+					<td><form:input path="fecha" value="${vueloObject.fecha}"
+							maxlength="10" required="required" /></td>
 				</tr>
 				<tr>
 					<td><form:label path="horaInicio">Hora de inicio (HH:mm:ss) *</form:label></td>
-					<td><form:input path="horaInicio" value="${vueloObject.horaInicio}" maxlength="8"  required="required"/></td>
+					<td><form:input path="horaInicio"
+							value="${vueloObject.horaInicio}" maxlength="8"
+							required="required" /></td>
 				</tr>
 				<tr>
 					<td><form:label path="avion">Avión *</form:label></td>
-					<td><form:select path="avion.id"  required="required">
+					<td><form:select path="avion.id" required="required">
 							<c:forEach items="${avionesList}" var="avion">
 						        <c:choose>
 						            <c:when test="${avion.id eq vueloObject.avion.id}">
@@ -37,10 +41,11 @@
 						        </c:choose> 
 						    </c:forEach>
 						</form:select>
+				
 				</tr>
 				<tr>
 					<td><form:label path="ruta">Ruta *</form:label></td>
-					<td><form:select path="ruta.id"  required="required">
+					<td><form:select path="ruta.id" required="required">
 							<c:forEach items="${rutasList}" var="ruta">
 						        <c:choose>
 						            <c:when test="${ruta.id eq vueloObject.ruta.id}">
@@ -52,6 +57,7 @@
 						        </c:choose> 
 						    </c:forEach>
 						</form:select>
+				
 				</tr>
 				<tr>
 					<td></td>

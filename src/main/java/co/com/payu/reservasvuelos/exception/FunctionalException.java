@@ -1,11 +1,10 @@
 package co.com.payu.reservasvuelos.exception;
 
-
 /**
- * Excepción que encapsula los errores de validación 
+ * Excepción que encapsula los errores de validación
  * 
  * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
- * @version Feb 1, 2015 10:50:02 PM
+ * @version Aug 22, 2016 10:50:02 PM
  *
  */
 public class FunctionalException extends Exception {
@@ -24,19 +23,20 @@ public class FunctionalException extends Exception {
 
 	/**
 	 * Método constructor de la clase FunctionalException.java
+	 * 
 	 * @param message
 	 * @param cause
 	 * @param enableSuppression
 	 * @param writableStackTrace
 	 */
-	public FunctionalException(String message, Throwable cause,
-			boolean enableSuppression, boolean writableStackTrace) {
+	public FunctionalException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
 		super(message, cause, enableSuppression, writableStackTrace);
 
 	}
 
 	/**
 	 * Método constructor de la clase FunctionalException.java
+	 * 
 	 * @param message
 	 * @param cause
 	 */
@@ -47,6 +47,7 @@ public class FunctionalException extends Exception {
 
 	/**
 	 * Método constructor de la clase FunctionalException.java
+	 * 
 	 * @param message
 	 */
 	public FunctionalException(String message) {
@@ -56,6 +57,7 @@ public class FunctionalException extends Exception {
 
 	/**
 	 * Método constructor de la clase FunctionalException.java
+	 * 
 	 * @param cause
 	 */
 	public FunctionalException(Throwable cause) {

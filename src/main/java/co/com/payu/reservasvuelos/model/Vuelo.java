@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.com.payu.reservasvuelos.model;
 
 import java.io.Serializable;
@@ -31,11 +26,15 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import co.com.payu.reservasvuelos.constants.Constants;
 import co.com.payu.reservasvuelos.util.ReservasVuelosUtil;
 
 /**
+ * Clase encargada de modelar la entidad Vuelo
+ * 
+ * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
+ * @version Aug 22, 2016 8:02:50 AM
  *
- * @author fawkes
  */
 @Entity
 @Table(name = "vuelo")
@@ -48,74 +47,148 @@ import co.com.payu.reservasvuelos.util.ReservasVuelosUtil;
 public class Vuelo implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    /**
+     * Identificador único de la entidad
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    /**
+     * Fecha del vuelo
+     */
     @Basic(optional = false)
     @Column(name = "fecha")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = Constants.DATE_FORMAT)
     @Temporal(TemporalType.DATE)
     private Date fecha;
+    /**
+     * Hora de inicio del vuelo
+     */
     @Basic(optional = false)
     @Column(name = "hora_inicio")
-    @DateTimeFormat(pattern = "HH:mm:ss")
+    @DateTimeFormat(pattern = Constants.TIME_FORMAT)
     @Temporal(TemporalType.TIME)
     private Date horaInicio;
+    /**
+     * Avión que realiza el vuelo
+     */
     @JoinColumn(name = "id_avion", referencedColumnName = "id")
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Avion avion;
+    /**
+     * Ruta que realiza el avión en el vuelo
+     */
     @JoinColumn(name = "id_ruta", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Ruta ruta;
+    /**
+     * Lista de pasajeros
+     */
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "vuelo")
     private List<PasajeroPorVuelo> pasajeroPorVueloList;
+    /**
+     * Representación del vuelo en String
+     */
     @Transient
     private String nombreAMostrar;
+    /**
+     * Hora calculada de finalización del vuelo teniendo en cuenta la hora de inicio
+     * y la duración del vuelo
+     */
     @Transient
-    @DateTimeFormat(pattern = "HH:mm:ss")
+    @DateTimeFormat(pattern = Constants.TIME_FORMAT)
     @Temporal(TemporalType.TIME)
     private Date horaEstimadaFinalizacion;
 
+    /**
+     * Método constructor de la clase Vuelo.java
+     */
     public Vuelo() {
     }
 
+    /**
+     * Método constructor de la clase Vuelo.java
+     * @param id
+     */
     public Vuelo(Integer id) {
         this.id = id;
     }
 
+    /**
+     * Método constructor de la clase Vuelo.java
+     * @param id
+     * @param fecha
+     * @param horaInicio
+     */
     public Vuelo(Integer id, Date fecha, Date horaInicio) {
         this.id = id;
         this.fecha = fecha;
         this.horaInicio = horaInicio;
     }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
-
-    public Date getHoraInicio() {
-        return horaInicio;
-    }
-
-    public void setHoraInicio(Date horaInicio) {
-        this.horaInicio = horaInicio;
-    }
-
+    
     /**
+	 * Método que retorna el valor de la variable id
+	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
+	 * @version Aug 22, 2016 8:18:09 AM
+	 * @return the id
+	 */
+	public Integer getId() {
+		return id;
+	}
+
+	/**
+	 * Método que establece el valor de la variable id
+	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
+	 * @version Aug 22, 2016 8:18:09 AM
+	 * @param id the id to set
+	 */
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	/**
+	 * Método que retorna el valor de la variable fecha
+	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
+	 * @version Aug 22, 2016 8:18:09 AM
+	 * @return the fecha
+	 */
+	public Date getFecha() {
+		return fecha;
+	}
+
+	/**
+	 * Método que establece el valor de la variable fecha
+	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
+	 * @version Aug 22, 2016 8:18:09 AM
+	 * @param fecha the fecha to set
+	 */
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
+	/**
+	 * Método que retorna el valor de la variable horaInicio
+	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
+	 * @version Aug 22, 2016 8:18:09 AM
+	 * @return the horaInicio
+	 */
+	public Date getHoraInicio() {
+		return horaInicio;
+	}
+
+	/**
+	 * Método que establece el valor de la variable horaInicio
+	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
+	 * @version Aug 22, 2016 8:18:09 AM
+	 * @param horaInicio the horaInicio to set
+	 */
+	public void setHoraInicio(Date horaInicio) {
+		this.horaInicio = horaInicio;
+	}
+
+	/**
 	 * Método que retorna el valor de la variable avion
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
 	 * @version Aug 21, 2016 8:47:06 AM
@@ -226,6 +299,9 @@ public class Vuelo implements Serializable {
 		this.horaEstimadaFinalizacion = horaEstimadaFinalizacion;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
     public int hashCode() {
         int hash = 0;
@@ -233,9 +309,11 @@ public class Vuelo implements Serializable {
         return hash;
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Vuelo)) {
             return false;
         }
@@ -246,6 +324,9 @@ public class Vuelo implements Serializable {
         return true;
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         return "co.com.payu.model.Vuelo[ id=" + id + " ]";

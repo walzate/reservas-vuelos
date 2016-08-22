@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import co.com.payu.reservasvuelos.constants.Constants;
 import co.com.payu.reservasvuelos.exception.FunctionalException;
 import co.com.payu.reservasvuelos.model.Avion;
 import co.com.payu.reservasvuelos.model.Ruta;
@@ -62,7 +63,7 @@ public class VueloController {
 	@InitBinder("horaInicio")
 	public void binder(WebDataBinder binder) {
 	    binder.registerCustomEditor(Date.class, 
-	            new CustomDateEditor(new SimpleDateFormat("HH:mm:ss"), true));
+	            new CustomDateEditor(new SimpleDateFormat(Constants.TIME_FORMAT), true));
 	}
 	
 	/**
@@ -139,7 +140,7 @@ public class VueloController {
 	}
 
 	/**
-	 * Método redirecciona a la página de edición y carga la información del
+	 * Método que redirecciona a la página de edición y carga la información del
 	 * vuelo
 	 * 
 	 * @param id

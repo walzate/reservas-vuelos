@@ -6,7 +6,7 @@ import co.com.payu.reservasvuelos.exception.FunctionalException;
 
 
 /**
- * Interfaz del servicio de pasajeros
+ * Interfaz del servicio genérico
  * 
  * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
  * @version Aug 20, 2016 10:53:39 PM
@@ -14,53 +14,53 @@ import co.com.payu.reservasvuelos.exception.FunctionalException;
  */
 public interface GenericService<T> {
 	/**
-	 * Método que almacena un pasajero
+	 * Método que almacena una entidad
 	 * 
-	 * @param pasajero
-	 *            el pasajero a almacenar
-	 * @return el id del pasajero almacenado
+	 * @param entidad
+	 *            la entidad a almacenar
+	 * @return el id de la entidad almacenado
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
 	 * @version Aug 20, 2016 10:24:20 PM
 	 */
-	public int insertRow(T pasajero) throws FunctionalException;
+	public int insertRow(T entidad) throws FunctionalException;
 
 	/**
-	 * Método que consulta los pasajeros en el sistema
+	 * Método que consulta los entidades en el sistema
 	 * 
-	 * @return la lista de pasajeros
+	 * @return la lista de entidades
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
 	 * @version Aug 20, 2016 10:24:41 PM
 	 */
 	public List<T> getList();
 
 	/**
-	 * Método que obtiene un pasajero dado su id
+	 * Método que obtiene una entidad dado su id
 	 * 
 	 * @param id
 	 *            el id por el cual consultar
-	 * @return el pasajero encontrado
+	 * @return la entidad encontrado
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
 	 * @version Aug 20, 2016 10:25:04 PM
 	 */
 	public T getRowById(int id);
 
 	/**
-	 * Método que actualiza un pasajero
+	 * Método que actualiza una entidad
 	 * 
-	 * @param pasajero
-	 *            el pasajero a actualizar
-	 * @return el pasajero actualizado
+	 * @param entidad
+	 *            la entidad a actualizar
+	 * @return la entidad actualizado
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
 	 * @version Aug 20, 2016 10:25:26 PM
 	 */
-	public int updateRow(T pasajero) throws FunctionalException;
+	public int updateRow(T entidad) throws FunctionalException;
 
 	/**
-	 * Método que elimina un pasajero
+	 * Método que elimina una entidad
 	 * 
 	 * @param id
-	 *            el id del pasajero a eliminar
-	 * @return el id del pasajero eliminado
+	 *            el id de la entidad a eliminar
+	 * @return el id de la entidad eliminado
 	 * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
 	 * @version Aug 20, 2016 10:25:49 PM
 	 */

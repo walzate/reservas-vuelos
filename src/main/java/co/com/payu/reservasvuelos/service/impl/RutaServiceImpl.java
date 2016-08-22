@@ -8,9 +8,8 @@ import co.com.payu.reservasvuelos.dao.impl.GenericDaoImpl;
 import co.com.payu.reservasvuelos.model.Ruta;
 import co.com.payu.reservasvuelos.service.GenericService;
 
-
 /**
- * Implementación del servicio de rutas 
+ * Implementación del servicio de rutas
  * 
  * @author Wilson Alzate Calderon <wilson.alzate@gmail.com>
  * @version Aug 20, 2016 10:57:37 PM
@@ -19,7 +18,7 @@ import co.com.payu.reservasvuelos.service.GenericService;
 public class RutaServiceImpl implements GenericService<Ruta> {
 
 	/**
-	 * Inyección del DAO de rutas 
+	 * Inyección del DAO de rutas
 	 */
 	@Autowired
 	GenericDaoImpl<Ruta> rutaDao;
