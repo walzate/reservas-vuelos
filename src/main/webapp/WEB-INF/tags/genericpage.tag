@@ -7,8 +7,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title>Reservas de Vuelos</title>
 <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
-<script type="text/javascript" src="<c:url value="/resources/js/jquery-3.1.0.js" />"></script>
-<script type="text/javascript" src="<c:url value="/resources/js/jquery-ui-1.12.0/jquery-ui.js" />"></script>
 </head>
 <body>
 	<div id="pageheader">

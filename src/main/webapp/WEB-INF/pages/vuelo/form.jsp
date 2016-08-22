@@ -3,12 +3,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
-<script>
-  $( function() {
-    $( "#fecha" ).datepicker();
-  } );
-</script>
-
 <t:genericpage>
 	<jsp:attribute name="header">
       <h1>Crear Vuelo</h1>
